@@ -44,10 +44,6 @@ jobs:
         working-directory: app-workspace
         run: west patch apply
 
-      - name: West config
-        working-directory: app-workspace
-        run: west config build.cmake-args -- ${{ secrets.CMAKE_BUILD_ARGS }}
-
       - name: Build firmware
         working-directory: app-workspace
         shell: bash
