@@ -5,7 +5,7 @@ on:
       - main
   pull_request:
   release:
-    types: [created, edited]
+    types: [published]
   workflow_dispatch:
     inputs:
       tag_name:
@@ -81,6 +81,7 @@ jobs:
     permissions:
       contents: write
     steps:
+      # required for gh cli tool
       - name: Checkout
         uses: actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6
         with:
@@ -95,6 +96,10 @@ jobs:
         shell: bash
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAG_NAME: ${{ github.event.release.tag_name || inputs.tag_name }}
+          TAG_NAME: ${{ github.event.release.tag_name || inputs.tag_name || (github.ref_type == 'tag' && github.ref_name) }}
         run: |
+          if [ -z "$TAG_NAME" ]; then
+            echo "Error: No tag name provided and workflow not run on a tag."
+            exit 1
+          fi
           gh release upload "$TAG_NAME" artifacts/**/* --clobber
