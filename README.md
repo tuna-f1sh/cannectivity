@@ -9,7 +9,7 @@
 > This fork of [CANnectivity](https://github.com/CANnectivity/cannectivity) is purely to add the
 > custom 'Entree V2' board; no firmware changes.
 >
-> Alternatively one can checkout the repo and pass `-- -DBOARD_ROOT=$PATH_TO_FORK -DEXTRA_OVERLAY_FILE=$PATH_TO_FORK/app/boards/entree.overlay` to the upstream CANnectivity
+> Alternatively one can checkout the repo and pass `-- -DBOARD_ROOT=$PATH_TO_FORK -DDTC_OVERLAY_FILE=$PATH_TO_FORK/app/boards/entree.overlay` to the upstream CANnectivity
 > build system with `-b entree` to use the custom board configuration.
 
 ## Overview
