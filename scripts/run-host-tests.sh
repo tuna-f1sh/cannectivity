@@ -1,5 +1,9 @@
 #!/usr/bin/env -S bash -e
 
+# SPDX-FileCopyrightText: Copyright (c) 2025-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 if [ -z "west list -f '{name}' | grep ^zephyr$" ]; then
     ZEPHYR_DIR=$(west list -f '{abspath}' zephyr)
 else
@@ -53,7 +57,7 @@ candump -t a -H any > host-tests-candump.log 2>&1 &
 CANDUMP_PID=$!
 
 echo "Building CANnectivity"
-west build -b native_sim/native/64 -S usbip-native-sim app
+west build -b native_sim/native/64 -S usbip-native-sim app -- -DFILE_SUFFIX=debug
 
 echo "Starting CANnectivity"
 valgrind --suppressions=$ZEPHYR_DIR/scripts/valgrind.supp --leak-check=full \

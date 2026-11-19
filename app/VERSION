@@ -1,8 +1,9 @@
-# Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
 # SPDX-License-Identifier: Apache-2.0
 
 VERSION_MAJOR = 1
-VERSION_MINOR = 5
+VERSION_MINOR = 6
 PATCHLEVEL = 0
 VERSION_TWEAK = 0
 EXTRAVERSION = dev

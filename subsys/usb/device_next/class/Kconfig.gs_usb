@@ -1,4 +1,5 @@
-# Copyright (c) 2022-2024 Henrik Brix Andersen <henrik@brixandersen.dk>
+# SPDX-FileCopyrightText: Copyright (c) 2022-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
 # SPDX-License-Identifier: Apache-2.0
 
 config USBD_GS_USB
@@ -25,13 +26,11 @@ config USBD_GS_USB_MAX_CHANNELS
 	  Maximum number of supported Geschwister Schneider USB/CAN (gs_usb) channels. Each channel
 	  represents one CAN controller.
 
-	  The Linux kernel driver supports up to 3 channels. Other drivers may support just one
-	  channel.
-
 config USBD_GS_USB_POOL_SIZE
 	int "Host frame buffer pool size"
 	default 20 if !USBD_GS_USB_COMPATIBILITY_MODE
 	default 21 if USBD_GS_USB_COMPATIBILITY_MODE
+	range 2 $(UINT32_MAX)
 	help
 	  Size of the pool used for allocating Geschwister Schneider USB/CAN (gs_usb) host
 	  frames. The pool is used for both RX and TX, and shared between all channels of a given

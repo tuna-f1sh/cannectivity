@@ -1,10 +1,10 @@
 /*
- * Copyright (c) 2024 Henrik Brix Andersen <henrik@brixandersen.dk>
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <zephyr/sys_clock.h>
+#include <zephyr/sys/clock.h>
 #include <zephyr/dfu/mcuboot.h>
 #include <zephyr/drivers/gpio.h>
 #include <zephyr/drivers/led.h>

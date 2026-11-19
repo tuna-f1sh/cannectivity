@@ -1,4 +1,5 @@
-# Copyright (c) 2024 Henrik Brix Andersen <henrik@brixandersen.dk>
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
 # SPDX-License-Identifier: Apache-2.0
 
 """
@@ -60,9 +61,9 @@ class GsUSBCANChannelFeature(IntFlag):
     """
     Geschwister Schneider USB/CAN protocol CAN channel features.
     """
-    # CAN channel supports listen-onlu mode, in which it is not allowed to send dominant bits.
+    # CAN channel supports listen-only mode, in which it is not allowed to send dominant bits.
     LISTEN_ONLY = 2**0
-    # CAN channel supports in loopback mode, which it receives own frames.
+    # CAN channel supports loopback mode, in which it receives own frames.
     LOOP_BACK = 2**1
     # CAN channel supports triple sampling mode
     TRIPLE_SAMPLE = 2**2
@@ -215,7 +216,7 @@ class GsUSBDeviceBittiming:
     prop_seg: int
     # Phase segment 1 (tq) */
     phase_seg1: int
-    # Phase segment 1 (tq) */
+    # Phase segment 2 (tq) */
     phase_seg2: int
     # Synchronisation jump width (tq) */
     sjw: int

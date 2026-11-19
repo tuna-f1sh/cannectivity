@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Henrik Brix Andersen <henrik@brixandersen.dk>
+ * SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
  *
  * SPDX-License-Identifier: Apache-2.0
  */
@@ -9,7 +9,7 @@
 #include <zephyr/kernel.h>
 #include <zephyr/logging/log.h>
 #include <zephyr/smf.h>
-#include <zephyr/sys_clock.h>
+#include <zephyr/sys/clock.h>
 
 #include "cannectivity.h"
 

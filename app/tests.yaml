@@ -1,4 +1,5 @@
-# Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
 # SPDX-License-Identifier: Apache-2.0
 
 sample:
@@ -14,7 +15,7 @@ common:
     regex:
       - "CANnectivity firmware initialized with .*"
 tests:
-  app.cannectivity:
+  app.cannectivity.debug:
     depends_on:
       - can
       - usbd
@@ -27,21 +28,13 @@ tests:
       - lpcxpresso55s16
       - nucleo_h723zg
       - usb2canfdv1
-  app.cannectivity.sof:
-    depends_on:
-      - can
-      - usbd
-    integration_platforms:
-      - lpcxpresso55s16
-      - nucleo_h723zg
-    extra_configs:
-      - CONFIG_USBD_GS_USB_TIMESTAMP_SOF=y
-  app.cannectivity.release:
-    depends_on:
-      - can
-      - usbd
+      - usb2canfdv2
     extra_args:
-      - FILE_SUFFIX=release
+      - FILE_SUFFIX=debug
+  app.cannectivity:
+    depends_on:
+      - can
+      - usbd
     integration_platforms:
       - canbardo
       - candlelight
@@ -54,7 +47,17 @@ tests:
       - nucleo_h723zg
       - ucan
       - usb2canfdv1
+      - usb2canfdv2
     build_only: true
+  app.cannectivity.sof:
+    depends_on:
+      - can
+      - usbd
+    integration_platforms:
+      - lpcxpresso55s16
+      - nucleo_h723zg
+    extra_configs:
+      - CONFIG_USBD_GS_USB_TIMESTAMP_SOF=y
   app.cannectivity.dfu:
     sysbuild: true
     depends_on:

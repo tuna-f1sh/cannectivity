@@ -1,3 +1,7 @@
+# SPDX-FileCopyrightText: Copyright (c) 2024-2026 Henrik Brix Andersen <henrik@brixandersen.dk>
+#
+# SPDX-License-Identifier: Apache-2.0
+
 version: 2
 
 updates:
@@ -6,8 +10,19 @@ updates:
     directory: /
     schedule:
       interval: daily
+    commit-message:
+      prefix: "github: "
   # Check for updates to Python packages
   - package-ecosystem: pip
-    directory: /
+    directory: /scripts
     schedule:
       interval: daily
+    commit-message:
+      prefix: "scripts: "
+  # Check for updates to Python packages for the documentation
+  - package-ecosystem: pip
+    directory: /doc
+    schedule:
+      interval: daily
+    commit-message:
+      prefix: "doc: "
